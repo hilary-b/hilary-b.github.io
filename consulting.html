@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting — Hilary Brennan-Marquez</title>
+  <meta name="description" content="Infrastructure consulting for startups getting serious about AI. Fix the foundation first.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a2e;
+      --body:       #374151;
+      --muted:      #6b7280;
+      --accent:     #2563eb;
+      --rule:       #e5e7eb;
+      --tag-bg:     #f1f5f9;
+      --tag-text:   #475569;
+      --bg:         #ffffff;
+      --section-bg: #f8fafc;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: var(--body);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    header .tagline {
+      margin-top: 0.5rem;
+      font-size: 1.05rem;
+      color: #94a3b8;
+    }
+    header nav {
+      margin-top: 1.75rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    header nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.875rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    header nav a:hover { color: #fff; }
+    header nav a.active { color: #fff; border-bottom: 1px solid #fff; padding-bottom: 1px; }
+
+    /* ── Layout ── */
+    main {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Lede ── */
+    #lede {
+      padding: 4rem 0 3.5rem;
+    }
+    #lede .headline {
+      font-size: clamp(1.5rem, 4vw, 2.1rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    #lede .headline em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    #lede p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--body);
+      max-width: 680px;
+    }
+    #lede p + p { margin-top: 1rem; }
+
+    /* ── Who this is for ── */
+    #who ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    #who ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: 0.975rem;
+      line-height: 1.65;
+    }
+    #who ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── Services ── */
+    .service-card {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-card:last-child { margin-bottom: 0; }
+    .service-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .service-header h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .service-price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .service-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .service-card p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .service-card p:last-child { margin-bottom: 0; }
+    .service-card .deliverables {
+      background: var(--section-bg);
+      border-radius: 4px;
+      padding: 1rem 1.1rem;
+      margin-top: 1rem;
+    }
+    .service-card .deliverables .label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .service-card .deliverables ul {
+      list-style: none;
+      padding: 0;
+    }
+    .service-card .deliverables ul li {
+      font-size: 0.875rem;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.1rem;
+    }
+    .service-card .deliverables ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* ── How it works ── */
+    .steps {
+      counter-reset: steps;
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 1.75rem;
+    }
+    .steps li {
+      counter-increment: steps;
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.75rem;
+      align-items: start;
+    }
+    .steps li::before {
+      content: counter(steps);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--tag-bg);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .steps li .step-title {
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .steps li .step-body {
+      font-size: 0.925rem;
+      line-height: 1.65;
+      color: var(--body);
+    }
+
+    /* ── Contact ── */
+    footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+    }
+    footer h2 { color: #94a3b8; margin-bottom: 0.5rem; }
+    footer .footer-sub {
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+    .contact-form {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-form .field { margin-bottom: 1.1rem; }
+    .contact-form label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 0.4rem;
+    }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 4px;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: #e2e8f0;
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    .contact-form select option { background: #0f172a; }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: #475569; }
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus { border-color: var(--accent); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 600;
+      font-family: inherit;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .contact-form button:hover { background: #1d4ed8; }
+    footer .note {
+      font-size: 0.75rem;
+      color: #334155;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .service-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Hilary Brennan-Marquez</h1>
+  <p class="tagline">Infrastructure Consulting</p>
+  <nav>
+    <a href="index.html">Resume</a>
+    <a href="consulting.html" class="active">Consulting</a>
+    <a href="https://www.linkedin.com/in/hilary-brennan-marquez-bb68b82a/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="lede">
+    <p class="headline">Fix the foundation.<br><em>Then</em> add AI.</p>
+    <p>
+      Everyone is racing to bolt AI onto their engineering stack. Most of it isn't working — not because the AI is bad, but because the infrastructure underneath it is too noisy, too manual, and too fragile to support it.
+    </p>
+    <p>
+      I help early-stage engineering teams get their infrastructure to a place where AI can actually make a difference: clean release processes, solid monitoring, and the right amount of automation. No more, no less.
+    </p>
+  </section>
+
+  <section id="who">
+    <h2>Who this is for</h2>
+    <ul>
+      <li>You're a Series A or B company with 5–30 engineers and infrastructure that grew faster than anyone planned</li>
+      <li>You don't have a dedicated infrastructure lead — it's owned by whoever has time, or nobody</li>
+      <li>Deployments are manual, flaky, or stressful</li>
+      <li>Monitoring exists but nobody trusts it</li>
+      <li>You're thinking about AI tooling but something feels off about the foundation first</li>
+      <li>You want a senior opinion and a clear plan, not a six-month engagement</li>
+    </ul>
+  </section>
+
+  <section id="services">
+    <h2>Services</h2>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3>Foundation Audit</h3>
+        <span class="service-price">$12,000</span>
+      </div>
+      <div class="service-meta">2–3 weeks &nbsp;·&nbsp; Fixed fee &nbsp;·&nbsp; One engagement at a time</div>
+      <p>
+        An honest assessment of where your infrastructure actually stands — not where you think it stands. I look at your release process, monitoring setup, deployment pipeline, and cloud spend, and tell you what's working, what's quietly broken, and what needs to change before you add more complexity on top.
+      </p>
+      <p>
+        Most teams come out of this with a clearer picture than they've had in years. The deliverable is a written report you can act on immediately — not a slide deck full of recommendations that go nowhere.
+      </p>
+      <div class="deliverables">
+        <div class="label">Deliverables</div>
+        <ul>
+          <li>Written findings report with prioritized recommendations</li>
+          <li>Assessment of AI readiness — what's blocking it and what to fix first</li>
+          <li>60-minute readout with your team to walk through findings</li>
+          <li>30-day follow-up to answer questions as you start executing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-header">
+        <h3>Infrastructure Cleanup</h3>
+        <span class="service-price">From $25,000</span>
+      </div>
+      <div class="service-meta">4–8 weeks &nbsp;·&nbsp; Fixed fee &nbsp;·&nbsp; Scoped per engagement</div>
+      <p>
+        Once you know what needs fixing, I can do the work. A Cleanup engagement tackles one well-defined problem: getting your infrastructure into Terraform, migrating your observability stack, untangling your release process, or right-sizing your cloud spend.
+      </p>
+      <p>
+        Scope is fixed upfront so there are no surprises. I work alongside your existing team rather than around them — the goal is to leave things in better shape and make sure your engineers understand what changed and why.
+      </p>
+      <div class="deliverables">
+        <div class="label">Recent examples</div>
+        <ul>
+          <li>Observability stack migration from Datadog to Vector, Prometheus, and Grafana</li>
+          <li>AWS resource management migrated from manual provisioning to Terraform</li>
+          <li>Single-region to multi-region infrastructure expansion</li>
+          <li>Legacy data warehouse migration to Snowflake with microservices ETL</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li>
+        <div>
+          <div class="step-title">Reach out</div>
+          <div class="step-body">Fill out the form below with a quick description of where things stand. I'll get back to you within a couple of days.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="step-title">Intro call</div>
+          <div class="step-body">A 30-minute conversation to make sure we're a good fit and I understand what you're working with. No pitch, no deck.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="step-title">Scoping</div>
+          <div class="step-body">For audits, scope is standard. For cleanups, I'll send a short SOW based on what we discussed — fixed fee, defined deliverables, clear timeline.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="step-title">The work</div>
+          <div class="step-body">I take one engagement at a time and give it my full attention. You'll always know where things stand.</div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <h2>Get in touch</h2>
+  <p class="footer-sub">Brooklyn, NY — available for remote engagements</p>
+  <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="your@email.com" required>
+    </div>
+    <div class="field">
+      <label for="interest">I'm interested in</label>
+      <select id="interest" name="interest">
+        <option value="">Select one...</option>
+        <option value="audit">Foundation Audit ($12,000)</option>
+        <option value="cleanup">Infrastructure Cleanup (from $25,000)</option>
+        <option value="other">Not sure yet — just want to talk</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="message">Tell me a bit about where things stand</label>
+      <textarea id="message" name="message" placeholder="Company size, tech stack, what's feeling broken..." required></textarea>
+    </div>
+    <button type="submit">Send</button>
+  </form>
+  <p class="note">I take one engagement at a time. If I'm booked, I'll let you know upfront.</p>
+</footer>
+
+</body>
+</html>
