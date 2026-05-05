@@ -477,8 +477,22 @@
 </footer>
 
 <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18141359168/GtllCP3x96ccEMDYvMpD',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+    });
+    return false;
+  }
   document.querySelector('.contact-form').addEventListener('submit', function() {
-    gtag('event', 'conversion', {'send_to': 'AW-18141359168'});
+    gtag_report_conversion();
   });
 </script>
 </body>
