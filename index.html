@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18141359168"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18141359168');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hilary Brennan-Marquez — Engineering Manager & Infrastructure Architect</title>
@@ -681,5 +689,10 @@
   <p class="note">This page is designed for both human and machine readers.<br>Expand the section above for the AI/ATS-optimized profile.</p>
 </footer>
 
+<script>
+  document.querySelector('.contact-form').addEventListener('submit', function() {
+    gtag('event', 'conversion', {'send_to': 'AW-18141359168'});
+  });
+</script>
 </body>
 </html>
